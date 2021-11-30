@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import "./styles/tailwind.css"
+import { WalletSelector } from "./components/walletSelector"
+export { WalletSelector }
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
