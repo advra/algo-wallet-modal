@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
 
-import { Modal } from './modal'
+import { MyModal } from './mymodal'
 import { ProvideWallet, useWallet } from '../context/ProvideWallet';
+import { Button } from 'react-bootstrap';
 
 /**
  * Primary UI component for user interaction
@@ -37,15 +38,11 @@ const SelectorContent = ({ returnWallet, validWallets }) => {
   return (
     <>
       <div className="flex items-center justify-center">
-        <button
-          type="button"
-          onClick={openModal}
-          // className="px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-100 hover:bg-opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        >
+        <Button variant="primary" onClick={openModal}>
           Connect wallet
-        </button>
+        </Button>
       </div>
-      <Modal isOpen={isOpen} closeModal={closeModal} />
+      <MyModal isOpen={isOpen} closeModal={closeModal} />
     </>
   );
 };

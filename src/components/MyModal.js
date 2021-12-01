@@ -4,13 +4,14 @@ import { Dialog, Transition } from '@headlessui/react'
 import { WalletButton } from './walletButton'
 
 import { useWallet } from '../context/ProvideWallet'
+import { Button } from 'react-bootstrap'
 
-export const Modal = ({ isOpen, closeModal }) => {
+export const MyModal = ({ isOpen, closeModal }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="bg-gray-300 bg-opacity-25 fixed inset-0 z-10 overflow-y-auto"
+        className="bg-gray-250 bg-opacity-25 fixed inset-0 z-10 overflow-y-auto"
         onClose={closeModal}
       >
         <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
@@ -61,14 +62,11 @@ const ModalContent = ({ closeModal }) => {
   }
   return (
     <>
-      <Dialog.Title 
-        as="h3"
-        className="text-lg font-medium leading-6 text-gray-900"
-      >
+      <Dialog.Title as="h3" className="text-lg font-medium">
         Select Wallet
       </Dialog.Title>
 
-      <div className="grid grid-cols-2 gap-8 mt-4">
+      <div className="grid grid-cols-1 gap- mt-4">
         {getWallets().map(wallet =>
           !!wallet ? (
             <WalletButton key={wallet.id} info={wallet} onClick={() => onClick(wallet)} />
@@ -77,16 +75,15 @@ const ModalContent = ({ closeModal }) => {
       </div>
 
       <div className="hidden">
-        <button
+        <Button
           type="button"
-          className="inline-flex justify-center px-4 py-2 text-sm font-medium text-red-900 bg-red-100 border border-transparent rounded-md hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500"
           onClick={closeModal}
         >
           Cancel
-        </button>
+        </Button>
       </div>
     </>
   );
 }
 
-export default Modal;
+export default MyModal;
