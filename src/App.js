@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Button, Row, Col } from 'react-bootstrap';
+import { Button, Row, Col, Navbar, Container} from 'react-bootstrap';
 
 import ConnectButton from './ConnectButton';
 
@@ -14,9 +14,13 @@ import ConnectButton from './ConnectButton';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <ConnectButton />
-      </header>
+    <Navbar>
+      <Navbar.Brand href="#home">Algorand Wallet Selector Example</Navbar.Brand>
+      <Navbar.Toggle />
+      <Navbar.Collapse className="justify-content-end">
+      <ConnectButton />
+      </Navbar.Collapse>
+    </Navbar>
     </div>
   );
 }
