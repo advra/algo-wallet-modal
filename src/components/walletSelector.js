@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
 
-import { MyModal } from './mymodal'
 import { ProvideWallet, useWallet } from '../context/ProvideWallet';
-import { Button } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
+import { WalletButton } from './walletButton'
 
 /**
  * Primary UI component for user interaction
@@ -26,23 +26,43 @@ const SelectorContent = ({ returnWallet, validWallets }) => {
     setValidWallets(validWallets);
   }, [validWallets]);
 
-  const closeModal = (walletInfo) => {
-    setIsOpen(false)
-    returnWallet(walletInfo)
-  }
+  const [show, setShow] = useState(false);
 
-  const openModal = () => {
-    setIsOpen(true)
+  const handleClose = () => setShow(false);
+  const handleOpen = () => setShow(true);
+  const { setWallet, getWallets } = useWallet();
+  
+  const onClick = (walletInfo) => {
+    setWallet(walletInfo);
+    handleClose(walletInfo);
   }
 
   return (
     <>
-      <div className="flex items-center justify-center">
-        <Button variant="primary" onClick={openModal}>
+      <div>
+        <Button variant="primary" onClick={handleOpen}>
           Connect wallet
         </Button>
       </div>
-      <MyModal isOpen={isOpen} closeModal={closeModal} />
+      
+      <Modal show={show} onHide={handleClose}>
+
+        <Modal.Header closeButton>
+          Select Wallet
+        </Modal.Header>
+
+        {/* ToDo: onClick is broken. Doesnt seem to route the provider link*/}
+        <Modal.Body>
+        <div className="grid grid-cols-1 mt-4">
+          {getWallets().map(wallet =>
+            !!wallet ? (
+              <WalletButton key={wallet.id} info={wallet} onClick={() => onClick(wallet)} />
+            ) : null
+          )}
+        </div>
+        </Modal.Body>
+
+      </Modal>
     </>
   );
 };

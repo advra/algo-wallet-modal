@@ -2,7 +2,6 @@ import { WalletSelector } from ".";
 
 const ConnectButton = () => {
   
-
   const returnWallet = async (data) => {
     if (!!data) {
       console.log(data.connector.check());
@@ -11,16 +10,10 @@ const ConnectButton = () => {
     }
   };
 
-  const Template = (args) => (
-    <div>
-        <WalletSelector returnWallet={returnWallet} />
-    </div>
-  );
-
     return (  
-        <div>
-        <Template />
-        </div>
+      <div>
+       <WalletSelector returnWallet={returnWallet} />
+      </div>
     );
 }
  
