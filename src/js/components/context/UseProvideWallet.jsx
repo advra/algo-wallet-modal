@@ -1,19 +1,14 @@
-import { useState } from "react";
-import { injected, providers, connectors } from "../wallets";
+import { useState } from 'react';
+import { injected, providers, connectors } from '../../wallets';
 
-const walletsData = {
-  ...providers,
-  ...injected,
-};
-
-const allWallets = Object.values(walletsData).map((walletInfo) => ({
-  ...walletInfo,
-  connector: connectors[walletInfo.id](),
-}));
-
-export function useProvideWallet() {
+const UseProvideWallet = () => {
   const [wallet, _setWallet] = useState(null);
   const [validWallets, _setValidWallets] = useState([]);
+
+  const allWallets = Object.values({ ...providers, ...injected}).map((walletInfo) => ({
+    ...walletInfo,
+    connector: connectors[walletInfo.id](),
+  }));
 
   const setWallet = (walletInfo) => {
     _setWallet(walletInfo);
@@ -38,3 +33,5 @@ export function useProvideWallet() {
     setValidWallets,
   };
 }
+
+export default UseProvideWallet;

@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import { MyModal } from './mymodal'
-import { ProvideWallet, useWallet } from '../context/ProvideWallet';
-import { Button } from 'react-bootstrap';
+import { MyModal } from './MyModal'
+import { useWallet } from '../context/ProvideWallet';
 
-/**
- * Primary UI component for user interaction
- */
-export const WalletSelector = ({ returnWallet, wallets = [] }) => {
-  return (
-    <div>
-      <ProvideWallet>
-        <SelectorContent returnWallet={returnWallet} validWallets={wallets} />
-      </ProvideWallet>
-    </div>
-  );
-};
-
-const SelectorContent = ({ returnWallet, validWallets }) => {
+export const SelectorContent = ({ returnWallet, validWallets }) => {
   let [isOpen, setIsOpen] = useState(false)
   const { setValidWallets } = useWallet();
 
@@ -37,8 +24,8 @@ const SelectorContent = ({ returnWallet, validWallets }) => {
 
   return (
     <>
-      <div className="flex items-center justify-center">
-        <Button variant="primary" onClick={openModal}>
+      <div className='flex items-center justify-center'>
+        <Button variant='primary' onClick={openModal}>
           Connect wallet
         </Button>
       </div>

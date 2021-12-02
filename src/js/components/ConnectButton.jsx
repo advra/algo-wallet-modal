@@ -1,8 +1,6 @@
-import { WalletSelector } from ".";
+import { WalletSelector } from '.';
 
 const ConnectButton = () => {
-  
-
   const returnWallet = async (data) => {
     if (!!data) {
       console.log(data.connector.check());
@@ -11,17 +9,11 @@ const ConnectButton = () => {
     }
   };
 
-  const Template = (args) => (
+  return (  
     <div>
-        <WalletSelector returnWallet={returnWallet} />
+      <WalletSelector returnWallet={returnWallet} />
     </div>
   );
-
-    return (  
-        <div>
-        <Template />
-        </div>
-    );
 }
  
 export default ConnectButton;

@@ -1,8 +1,6 @@
 const AlgoSigner = undefined;
 
-const checkConnection = () => {
-    return (typeof AlgoSigner !== 'undefined');
-};
+const checkConnection = () => typeof AlgoSigner !== 'undefined';
   
 const ConnectToAlgoSigner = () => {
     if (typeof window === 'undefined') {
@@ -12,6 +10,6 @@ const ConnectToAlgoSigner = () => {
         check: checkConnection,
         };
     }
-}
-  
+};
+
 export default ConnectToAlgoSigner;
