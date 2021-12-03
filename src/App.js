@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import { Button, Row, Col, Navbar, Container } from 'react-bootstrap';
 
 import ConnectButton from './ConnectButton';
@@ -22,9 +20,6 @@ function App() {
         </Navbar.Collapse>
         </Container>
       </Navbar>
-      <header className="App-header">
-      
-      </header>
     </div>
   );
 }
