@@ -37,11 +37,9 @@ const SelectorContent = ({ returnWallet, validWallets }) => {
 
   return (
     <>
-      <div className="flex items-center justify-center">
-        <Button variant="primary" onClick={openModal}>
-          Connect wallet
-        </Button>
-      </div>
+      <Button variant="primary" onClick={openModal}>
+        Connect wallet
+      </Button>
       <MyModal isOpen={isOpen} closeModal={closeModal} />
     </>
   );

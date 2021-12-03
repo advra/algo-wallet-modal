@@ -75,10 +75,7 @@ const ModalContent = ({ closeModal }) => {
       </div>
 
       <div className="hidden">
-        <Button
-          type="button"
-          onClick={closeModal}
-        >
+        <Button type="button" onClick={closeModal}>
           Cancel
         </Button>
       </div>

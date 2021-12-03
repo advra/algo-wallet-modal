@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Button, Row, Col } from 'react-bootstrap';
+import { Button, Row, Col, Navbar, Container } from 'react-bootstrap';
 
 import ConnectButton from './ConnectButton';
 
@@ -14,8 +14,16 @@ import ConnectButton from './ConnectButton';
 function App() {
   return (
     <div className="App">
+      <Navbar>
+        <Container>
+        <Navbar.Brand href="#home">Test</Navbar.Brand>
+        <Navbar.Collapse className="justify-content-end">
+          <ConnectButton/>
+        </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <header className="App-header">
-        <ConnectButton />
+      
       </header>
     </div>
   );
