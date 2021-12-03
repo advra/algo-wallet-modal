@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
 
-import { MyModal } from './mymodal'
+import { MyModal } from './MyModal';
 import { ProvideWallet, useWallet } from '../context/ProvideWallet';
 import { Button } from 'react-bootstrap';
 
