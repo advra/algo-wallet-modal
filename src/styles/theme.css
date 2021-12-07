@@ -1,0 +1,12 @@
+.walletImg {
+    height: 100px;
+    width: 100px;
+    flex: 1;
+    aspectRatio: 1.5;
+    resizeMode: 'contain';
+}
+
+.walletButton {
+    height: 150px;
+    wifht: 150px;
+}

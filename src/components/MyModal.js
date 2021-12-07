@@ -1,20 +1,22 @@
-import React, { Fragment } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import React, { Fragment } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import { IconButton } from '@mui/material';
+import { Close } from '@mui/icons-material';
 
 import { WalletButton } from './walletButton'
 
 import { useWallet } from '../context/ProvideWallet'
-import { Button } from 'react-bootstrap'
+// import { Button } from 'react-bootstrap'
 
 export const MyModal = ({ isOpen, closeModal }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="bg-gray-250 bg-opacity-25 fixed inset-0 z-10 overflow-y-auto"
+        className="fixed inset-0 z-10 overflow-y-auto"
         onClose={closeModal}
       >
-        <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
+        {/* <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" /> */}
         <div className="min-h-screen px-4 text-center">
           <Transition.Child
             as={Fragment}
@@ -44,7 +46,7 @@ export const MyModal = ({ isOpen, closeModal }) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="bg-gray-100 inline-block w-full max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white border shadow-xl rounded-2xl">
+            <div className="inline-block w-500 max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-red shadow-xl rounded-2xl">
               <ModalContent closeModal={closeModal} />
             </div>
           </Transition.Child>
@@ -62,22 +64,19 @@ const ModalContent = ({ closeModal }) => {
   }
   return (
     <>
-      <Dialog.Title as="h3" className="text-lg font-medium">
+      <Dialog.Title as="h2" className="text-lg font-medium leading-6 text-gray-900">
         Select Wallet
+        <IconButton onClick={closeModal}>
+          <Close/>
+        </IconButton>
       </Dialog.Title>
 
-      <div className="grid grid-cols-1 gap- mt-4">
+      <div>
         {getWallets().map(wallet =>
           !!wallet ? (
             <WalletButton key={wallet.id} info={wallet} onClick={() => onClick(wallet)} />
           ) : null
         )}
-      </div>
-
-      <div className="hidden">
-        <Button type="button" onClick={closeModal}>
-          Cancel
-        </Button>
       </div>
     </>
   );

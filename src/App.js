@@ -1,5 +1,4 @@
-import { Button, Row, Col, Navbar, Container } from 'react-bootstrap';
-
+import { Navbar, Container } from 'react-bootstrap';
 import ConnectButton from './ConnectButton';
 
 <link
@@ -14,7 +13,7 @@ function App() {
     <div className="App">
       <Navbar>
         <Container>
-        <Navbar.Brand href="#home">Test</Navbar.Brand>
+        <Navbar.Brand href="#home">Algo Wallet</Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <ConnectButton/>
         </Navbar.Collapse>
