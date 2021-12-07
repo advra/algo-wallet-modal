@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Navbar>
         <Container>
-        <Navbar.Brand href="#home">Algo Wallet</Navbar.Brand>
+        <Navbar.Brand href="#home"><h2>Algo Web3 Wallet Selector</h2></Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <ConnectButton/>
         </Navbar.Collapse>
